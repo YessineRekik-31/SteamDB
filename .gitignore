@@ -1,0 +1,23 @@
+# OS files
+.DS_Store
+Thumbs.db
+
+# SQLite
+*.db-shm
+*.db-wal
+
+# MySQL dumps
+*.sql.bak
+*.sql.gz
+
+# IDE files
+.vscode/
+.idea/
+*.suo
+*.user
+
+# Logs
+*.log
+
+# Environment
+.env
