@@ -1,9 +1,16 @@
-
-```markdown
 # 🎮 STEAMDB — Relational Database of a Video Game Distribution Platform
 
-> A relational database project inspired by the Steam platform, built with MySQL.  
+> A relational database project inspired by the Steam gaming platform, built with MySQL.  
 > Supervised by **Malek Ben Youssef** — SUP'COM, April 2026
+
+---
+
+## 👥 Team
+
+| Name | School |
+|---|---|
+| Yessine Rekik | SUP'COM |
+| Shatha Ifaoui | SUP'COM |
 
 ---
 
@@ -19,24 +26,27 @@ This project consists of designing and implementing a relational database inspir
 Steam-Database/
 │
 ├── 📁 docs/
-│   ├── MCD.png
-│   ├── MLD.png
-│   └── presentation.pdf
+│   ├── MCD.png                  # Modèle Conceptuel de Données
+│   ├── MLD.png                  # Modèle Logique de Données
+│   └── presentation.pdf         # Full project presentation
 │
 ├── 📁 src/
-│   ├── schema.sql
-│   ├── insert.sql
-│   └── queries.sql
+│   ├── schema.sql               # Database creation (CREATE TABLE)
+│   ├── insert.sql               # Sample data insertion
+│   └── queries.sql              # All 30 implemented SQL queries
 │
 ├── 📁 db/
-│   └── steam.db
+│   └── steam.db                 # SQLite database file
 │
+├── .gitignore
 └── README.md
 ```
 
 ---
 
 ## 🧩 Conceptual Model (MCD) — 15 Entities
+
+The database is built around **15 entities**:
 
 `Users` · `Games` · `Library` · `Reviews` · `Friends` · `Genres` · `Game_Genres` · `Companies` · `Engines` · `Platform` · `DLC_Expansions` · `System_Requirements` · `Support_Info` · `Stats` · `Achievements` · `Esports_Tournaments`
 
@@ -68,48 +78,55 @@ Esports_Tournaments (tournament_id, game_id#, tournament_name, year, prize_pool_
 ## 📋 Business Rules
 
 ### 🎮 Games
-- Must have a unique identifier
-- Must have one developer and one publisher
-- Must use one engine and be on at least one platform
-- Can belong to multiple genres and have multiple DLCs
+- A game must have a unique identifier
+- A game must have one developer and one publisher
+- A game must use one engine
+- A game must be available on at least one platform
+- A game can belong to multiple genres
+- A game can have multiple DLCs
 
 ### 👤 Users
-- Must have a unique identifier
-- Can own multiple games and have multiple friends
-- Friendship must have a status
+- A user must have a unique identifier
+- A user can own multiple games
+- A user can have multiple friends
+- A friendship must have a status
 
 ### ⭐ Reviews
-- Linked to one user and one game
-- One review per user per game
-- Contains a rating and a recommendation
+- A review must be linked to one user and one game
+- A user can only write one review per game
+- A review contains a rating and a recommendation
 
 ### 📚 Library
-- Must contain purchase date and playtime hours (≥ 0)
+- The library must contain the purchase date
+- The library must contain playtime hours (≥ 0)
 
 ### 🏢 Companies
-- Can develop and publish multiple games
+- A company can develop multiple games
+- A company can publish multiple games
 
 ### ⚙️ Constraints
-- One stats sheet and one system config per game
-- Platforms: Windows, Linux, or Mac
+- A game must have one stats sheet and one system configuration
+- Platforms are Windows, Linux, or Mac
 - A game can be free or paid
 
 ---
 
-## 🔍 30 Implemented Queries
+## 🔍 Implemented Queries (30 Queries)
+
+Here are some highlights from the 30 SQL queries implemented:
 
 | # | Query | Use Case |
 |---|---|---|
 | 1 | Best free games | Gamer on a budget |
-| 2 | Cross-platform games | Any OS gamer |
+| 2 | Cross-platform games | Gamer on any OS |
 | 3 | Games with support but bad reviews | Quality manager |
 | 4 | Esports prize pool ranking | Esports sponsor |
-| 5 | Dominant engine in esports | Developer |
-| 6 | Cheapest + lightest games | Low-end PC gamer |
-| 7 | Games with too many achievements | Completionist |
+| 5 | Dominant engine in esports | Developer choosing tech |
+| 6 | Cheapest games with low storage | Low-end PC gamer |
+| 7 | Games with too many achievements | Completionist gamer |
 | 8 | Average playtime by genre | Product team |
-| 9 | Best developers by reviews | Publisher |
-| 10 | Games with toxic community | Gamer |
+| 9 | Best developers by reviews | Publisher seeking studios |
+| 10 | Games with toxic community | Gamer avoiding toxicity |
 | 11 | Top publishers by revenue | Investor |
 | 12 | Most addictive games by genre | Investor |
 | 13 | High retention niche games | Developer |
@@ -121,38 +138,52 @@ Esports_Tournaments (tournament_id, game_id#, tournament_name, year, prize_pool_
 | 19 | Best Linux community ratings | Linux gamer |
 | 20 | Bad games without real support | Gamer |
 | 21 | Popular games compatible with my PC | Technical team |
-| 22 | Shared games between friends | Matchmaking |
+| 22 | Users with shared games (matchmaking base) | Gamer |
 | 23 | Most played game overall | Gamer |
 | 24 | Games without DLC | Content analyst |
 | 25 | Most expensive game per genre | Pricing team |
-| 26 | Games priced below studio average | Deal hunter |
-| 27 | Expensive but very played games | Publisher |
+| 26 | Games priced below studio average | Gamer hunting deals |
+| 27 | Expensive games that are still very played | Publisher |
 | 28 | Most profitable platform | Publisher |
 | 29 | Top 3 games per genre | Gamer |
-| 30 | Full popularity ranking | Gamer |
+| 30 | Full game popularity ranking | Gamer |
 
 ---
 
 ## 🚀 How to Run
 
+### Using MySQL
 ```bash
-# MySQL
-mysql -u root -p < src/schema.sql
-mysql -u root -p steam_db < src/insert.sql
-mysql -u root -p steam_db < src/queries.sql
+# 1. Clone the repository
+git clone https://github.com/YOUR_USERNAME/Steam-Database.git
+cd Steam-Database
 
-# SQLite
+# 2. Create the database
+mysql -u root -p < src/schema.sql
+
+# 3. Insert sample data
+mysql -u root -p steam_db < src/insert.sql
+
+# 4. Run queries
+mysql -u root -p steam_db < src/queries.sql
+```
+
+### Using SQLite
+```bash
 sqlite3 db/steam.db < src/schema.sql
 sqlite3 db/steam.db < src/insert.sql
 ```
 
 ---
 
-## 🛠️ Technologies
+## 🛠️ Technologies Used
 
-- **MySQL** — Tables, relationships, queries
+- **MySQL** — Database creation, relationships, and queries
 - **SQLite** — Lightweight database file
-- **SQL** — Joins, subqueries, window functions (RANK, DENSE_RANK)
-```
+- **SQL** — Joins, subqueries, window functions (RANK, DENSE_RANK), aggregations
 
-Just paste this directly into your `README.md` file on GitHub! 🚀
+---
+
+## 📄 License
+
+This project is open source and available under the MIT License.
