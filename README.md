@@ -1,4 +1,3 @@
-Here it is:
 
 ```markdown
 # 🎮 STEAMDB — Relational Database of a Video Game Distribution Platform
