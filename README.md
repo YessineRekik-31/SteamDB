@@ -5,15 +5,6 @@
 
 ---
 
-## 👥 Team
-
-| Name | School |
-|---|---|
-| Yessine Rekik | SUP'COM |
-| Shatha Ifaoui | SUP'COM |
-
----
-
 ## 📌 Introduction
 
 This project consists of designing and implementing a relational database inspired by the Steam platform. The objective is to model information related to video games, users, and their interactions. MySQL was used to create tables, manage relationships, and execute SQL queries.
