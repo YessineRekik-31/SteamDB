@@ -146,7 +146,7 @@ Here are some highlights from the 30 SQL queries implemented:
 ### Using MySQL
 ```bash
 # 1. Clone the repository
-git clone https://github.com/YOUR_USERNAME/Steam-Database.git
+git clone https://github.com/YessineRekik-31/SteamDB.git
 cd Steam-Database
 
 # 2. Create the database
