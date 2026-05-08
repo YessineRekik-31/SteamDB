@@ -46,22 +46,23 @@ CREATE TABLE `games` (
   `developer_id` int DEFAULT NULL,
   `publisher_id` int DEFAULT NULL,
   `engine_id` int DEFAULT NULL,
+  `platform_id` int DEFAULT NULL,
   PRIMARY KEY (`game_id`),
   CONSTRAINT `fk_game_developer` FOREIGN KEY (`developer_id`) REFERENCES `companies` (`company_id`),
   CONSTRAINT `fk_game_publisher` FOREIGN KEY (`publisher_id`) REFERENCES `companies` (`company_id`),
   CONSTRAINT `fk_engine_game` FOREIGN KEY (`engine_id`) REFERENCES `engines` (`engine_id`)
+  CONSTRAINT `fk_platform_game` FOREIGN KEY (`platform_id`) REFERENCES `platforms` (`platform_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- ============================================================
 -- 5. platforms
 -- ============================================================
 CREATE TABLE `platforms` (
-  `game_id` int NOT NULL,
+  `platform_id` int NOT NULL,
   `windows` int DEFAULT NULL,
   `mac` int DEFAULT NULL,
   `linux` int DEFAULT NULL,
-  PRIMARY KEY (`game_id`),
-  CONSTRAINT `fk_platform_game` FOREIGN KEY (`game_id`) REFERENCES `games` (`game_id`)
+  PRIMARY KEY (`platform_id`),
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- ============================================================
