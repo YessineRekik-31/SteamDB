@@ -50,8 +50,8 @@ CREATE TABLE `games` (
   PRIMARY KEY (`game_id`),
   CONSTRAINT `fk_game_developer` FOREIGN KEY (`developer_id`) REFERENCES `companies` (`company_id`),
   CONSTRAINT `fk_game_publisher` FOREIGN KEY (`publisher_id`) REFERENCES `companies` (`company_id`),
-  CONSTRAINT `fk_engine_game` FOREIGN KEY (`engine_id`) REFERENCES `engines` (`engine_id`)
-  CONSTRAINT `fk_platform_game` FOREIGN KEY (`platform_id`) REFERENCES `platforms` (`platform_id`)
+  CONSTRAINT `fk_engine_game` FOREIGN KEY (`engine_id`) REFERENCES `engines` (`engine_id`),
+  CONSTRAINT `fk_platform_game` FOREIGN KEY (`platform_id`) REFERENCES `platforms` (`platform_id`),
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- ============================================================
