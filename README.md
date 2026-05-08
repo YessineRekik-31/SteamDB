@@ -35,9 +35,9 @@ Steam-Database/
 
 ---
 
-## 🧩 Conceptual Model (MCD) — 15 Entities
+## 🧩 Conceptual Model (MCD) — 16 Entities
 
-The database is built around **15 entities**:
+The database is built around **16 entities**:
 
 `Users` · `Games` · `Library` · `Reviews` · `Friends` · `Genres` · `Game_Genres` · `Companies` · `Engines` · `Platform` · `DLC_Expansions` · `System_Requirements` · `Support_Info` · `Stats` · `Achievements` · `Esports_Tournaments`
 
