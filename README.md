@@ -17,7 +17,7 @@ This project consists of designing and implementing a relational database inspir
 Steam-Database/
 │
 ├── 📁 docs/
-│   ├── MCD.png                  # Modèle Conceptuel de Données
+│   ├── MCD.png                  # Conceptual Model
 │   ├── MLD.png                  # Modèle Logique de Données
 │   └── presentation.pdf         # Full project presentation
 │
