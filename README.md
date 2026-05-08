@@ -18,7 +18,7 @@ Steam-Database/
 │
 ├── 📁 docs/
 │   ├── MCD.png                  # Conceptual Model
-│   ├── MLD.png                  # Modèle Logique de Données
+│   ├── MLD.png                  # Relational Model
 │   └── presentation.pdf         # Full project presentation
 │
 ├── 📁 src/
