@@ -21,7 +21,7 @@ ORDER BY s.positive_reviews DESC;
 -- ============================================================
 SELECT g.title, g.price
 FROM games g, platforms p
-WHERE g.game_id = p.game_id
+WHERE g.platform_id = p.platform_id
 AND p.windows = 1
 AND p.linux = 1
 AND p.mac = 1
@@ -181,7 +181,7 @@ SELECT g.title,
        ROUND(100.0 * s.positive_reviews / NULLIF(s.positive_reviews + s.negative_reviews, 0), 1) AS positive_pct,
        s.current_players
 FROM games g, platforms p, stats s
-WHERE p.game_id = g.game_id
+WHERE p.platform_id = g.platform_id
 AND s.game_id = g.game_id
 AND p.linux = 1
 AND s.positive_reviews + s.negative_reviews > 1000
@@ -394,7 +394,7 @@ SELECT
     END AS platform,
     ROUND(SUM(g.price), 2) AS total_revenue_estimate
 FROM games g, platforms p, library l
-WHERE g.game_id = p.game_id
+WHERE g.platform_id = p.platform_id
 AND g.game_id = l.game_id
 GROUP BY platform
 ORDER BY total_revenue_estimate DESC;
