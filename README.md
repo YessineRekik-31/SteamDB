@@ -27,7 +27,7 @@ Steam-Database/
 │   └── queries.sql              # All 30 implemented SQL queries
 │
 ├── 📁 db/
-│   └── steam.db                 # SQLite database file
+│   └── steam.sql                 # MySQL database file
 │
 ├── .gitignore
 └── README.md
